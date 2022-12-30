@@ -5,10 +5,10 @@ const favicon = require('serve-favicon')
 const morgan = require ('morgan')
 
 // REQUIRE AND CONFIG DOTENV:
-// require('dotenv').config()
+require('dotenv').config()
 
 // CONNECT TO DATABASE:
-// require('./config/database')
+require('./config/database')
 
 const app = express()
 
@@ -22,8 +22,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 //app.use(require('./config/checkToken'))
 
 // MOUNT API ROUTES:
-//app.use('/api/users', require('./routes/api/users'))
-// app.use('/api/goals', require('./routes/api/goals.js'))
+app.use('/api/favorites', require('./routes/api/favorites'))
 
 
 // CATCH ALL ROUTE:
