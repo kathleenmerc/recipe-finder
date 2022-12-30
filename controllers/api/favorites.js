@@ -1,4 +1,4 @@
-const Goal = require('../../models/favorite')
+const Favorite = require('../../models/favorite')
 
 module.exports = {
     create

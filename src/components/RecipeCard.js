@@ -5,7 +5,7 @@ import * as favoritesAPI from '../utilities/favorites-api'
 export default function RecipeCard (props) {
 
     const [favorite, setFavorite] = useState({
-        title: ''
+        title: "",
     })
 
     const handleChange = (evt) => {
@@ -21,7 +21,7 @@ export default function RecipeCard (props) {
     return (
         <div className='recipeCardContainer'>
             <form onSubmit={handleSubmit}>
-                <label name={props.title}>{props.title}</label>
+                <label>{props.title}</label>
                 <button type="submit" name="title" value={props.title} onChange={handleChange}>Add to favorites</button>
             </form>
         </div>

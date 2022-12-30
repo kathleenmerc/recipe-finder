@@ -9,7 +9,7 @@ export async function addFavorite(favorite) {
 
 
 // HELPER FUNCTIONS:
-async function sendRequest (url, method = 'GET', payload = null) {
+async function sendRequest (url, method = 'GET') {
     const options = { method }
 
     const res = await fetch(url, options)

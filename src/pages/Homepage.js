@@ -31,15 +31,24 @@ export default function Homepage(props) {
     const loaded = () => {
         return (
             <div>
-                <h1>{ingredients[0].title}</h1>
-                <h1>{ingredients[1].title}</h1>
+
+                <div>
+                    {ingredients.map((recipe) => {
+                        return (
+                            <div key={recipe.id}>
+                                <div><RecipeCard title={recipe.title} /></div>
+                            </div>
+                        )
+                    })}
+                </div>
+
             </div>
         )
     }
 
     const loading = () => {
         return <h1>Loading...</h1>
-       }
+    }
 
 
     return (
