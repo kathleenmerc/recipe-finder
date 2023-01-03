@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 //app.use(require('./config/checkToken'))
 
 // MOUNT API ROUTES:
-//app.use('/api/favorites', require('./routes/api/favorites'))
+app.use('/api/favorites', require('./routes/api/favorites'))
 
 
 // CATCH ALL ROUTE:

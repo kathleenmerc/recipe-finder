@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import * as favoritesAPI from '../utilities/favorites-api'
 import { favorite } from '../pages/Homepage'
+import RecipeCard from './RecipeCard'
 
 
 export default function FavoriteCard (props) {

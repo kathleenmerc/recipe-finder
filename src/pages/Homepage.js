@@ -1,20 +1,28 @@
 import { useState, useEffect } from "react"
 import SearchForm from "../components/SearchForm"
 import RecipeCard from "../components/RecipeCard"
+import FavoritesPage from "./FavoritesPage"
+import { addFavorite } from "../utilities/favorites-api"
 
 
 export default function Homepage(props) {
     const [ingredients, setIngredients] = useState(null)
-    const [favorite, setFavorite] = useState(null)
+    const [favorite, setFavorite] = useState([])
 
     const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
-
+    
     const getFavorite = async (id) => {
         try {
             const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${REACT_APP_API_KEY}&includeNutrition=false`)
             const favInfo = await response.json()
             setFavorite(favInfo)
             console.log(favInfo)
+            //console.log(favorite)
+            
+
+            const newFavorite = await addFavorite(favInfo)
+            console.log(newFavorite)
+
         } catch (err) {
             console.log(err)
         }
@@ -38,9 +46,9 @@ export default function Homepage(props) {
 
 
     //  //This will run on the first render but not on subsquent renders
-    // useEffect(() => {
-    //     getIngredients()
-    // }, [])
+    // // useEffect(() => {
+    // //     getIngredients()
+    // // }, [])
 
     const loaded = () => {
         return (
@@ -51,6 +59,7 @@ export default function Homepage(props) {
                         return (
                             <div key={recipe.id}>
                                 <div><RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} getFavorite={getFavorite} favorite={favorite}/></div>
+                                
                             </div>
                         )
                     })}

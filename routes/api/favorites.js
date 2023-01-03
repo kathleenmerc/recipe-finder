@@ -6,7 +6,7 @@ const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 // POST /api/goals
-router.post('/',  jsonParser, favoritesController.create);
+router.post('/', jsonParser, favoritesController.create);
 
 
 
