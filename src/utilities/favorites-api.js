@@ -8,6 +8,11 @@ export async function addFavorite(favInfo) {
     
 }
 
+export async function getFavoritesAPI() {
+    return sendRequest(BASE_URL)
+}
+
+
 
 // HELPER FUNCTIONS:
 async function sendRequest (url, method = 'GET', favInfo = null) {
@@ -18,11 +23,12 @@ async function sendRequest (url, method = 'GET', favInfo = null) {
         options.body = JSON.stringify(favInfo);
     }
     const res = await fetch(url, options)
+    console.log('RESPONSE IN favorites-api')
     console.log(res)
     //console.log('OPTIONs.BDOY HERE = '  + options.body)
 
     if (res.ok) {
-        return res.json 
+        return res.json()
     } else {
         console.log('the error is here in goals-api')
         throw new Error('Bad Request')

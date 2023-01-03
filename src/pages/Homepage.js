@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import SearchForm from "../components/SearchForm"
 import RecipeCard from "../components/RecipeCard"
-import FavoritesPage from "./FavoritesPage"
 import { addFavorite } from "../utilities/favorites-api"
 
 
@@ -13,15 +12,18 @@ export default function Homepage(props) {
     
     const getFavorite = async (id) => {
         try {
+            // CODE FLOW TO GET AND SET RECIPE DATA FOR NEW FAVORITE:
             const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${REACT_APP_API_KEY}&includeNutrition=false`)
             const favInfo = await response.json()
             setFavorite(favInfo)
             console.log(favInfo)
             //console.log(favorite)
             
-
+            // CODE FLOW TO ADD FAVORITE TO DATABASE:
             const newFavorite = await addFavorite(favInfo)
             console.log(newFavorite)
+
+            
 
         } catch (err) {
             console.log(err)
@@ -30,12 +32,13 @@ export default function Homepage(props) {
 
     const getIngredients = async (searchTerm) => {
         try {
-            console.log('working before string')
+            // CODE FLOW TO GET RECIPES FROM SEARCHING INGREDIENTS:
+            //console.log('working before string')
             const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${searchTerm}&number=2`)
 
-            console.log('working after string')
+            //console.log('working after string')
             const data = await response.json()
-            console.log('working after data json')
+            //console.log('working after data json')
             setIngredients(data)
             console.log(data)
         } catch (err) {
@@ -59,7 +62,6 @@ export default function Homepage(props) {
                         return (
                             <div key={recipe.id}>
                                 <div><RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} getFavorite={getFavorite} favorite={favorite}/></div>
-                                
                             </div>
                         )
                     })}
@@ -81,8 +83,6 @@ export default function Homepage(props) {
             <div>
                 {ingredients ? loaded() : loading()}
             </div>
-
-
         </div>
     )
 }

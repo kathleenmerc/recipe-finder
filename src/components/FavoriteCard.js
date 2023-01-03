@@ -1,16 +1,21 @@
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from "react"
 import * as favoritesAPI from '../utilities/favorites-api'
-import { favorite } from '../pages/Homepage'
-import RecipeCard from './RecipeCard'
+import { Link } from "react-router-dom"
 
+export default function FavoriteCard(props) {
+    
 
-export default function FavoriteCard (props) {
 
     return (
-        <div className='FavoriteCardContainer'>
-                <label>{props.title}</label>
-                <img src={props.image} alt="image" />
+        <div className="favoritesCard">
+            <h1>favorites card</h1>
+            {props.title}
+            <img src={props.image} alt="food" />
+    
+           
         </div>
-
     )
 }
+
+
+    

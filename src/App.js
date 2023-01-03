@@ -3,8 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
 import Homepage from './pages/Homepage';
 import FavoritesPage from './pages/FavoritesPage';
-import { useState } from 'react';
-import RecipeCard from './components/RecipeCard';
+
 
 
 function App() {

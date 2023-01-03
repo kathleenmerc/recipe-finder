@@ -4,7 +4,6 @@ const path = require('path')
 const favicon = require('serve-favicon')
 const morgan = require ('morgan')
 const bodyParser = require('body-parser')
-const { default: mongoose } = require('mongoose')
 
 // REQUIRE AND CONFIG DOTENV:
 require('dotenv').config()
