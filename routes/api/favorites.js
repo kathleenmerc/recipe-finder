@@ -8,8 +8,10 @@ const favoritesController = require('../../controllers/api/favorites');
 // POST /api/favorites
 router.post('/', favoritesController.create);
 
-// GET .api/favorites
+// GET /api/favorites
 router.get('/', favoritesController.index)
 
+// DELETE /api/favorites
+router.delete('/:id', favoritesController.remove)
 
 module.exports = router
