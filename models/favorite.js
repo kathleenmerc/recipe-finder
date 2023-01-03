@@ -5,7 +5,7 @@ const favoriteSchema = new Schema({
     title: {type: String},
     image: {type: String},
     id: {type: Number},
-    sourceUrl: {type: String}
+    spoonacularSourceUrl: {type: String}
     },
     {
         timestamps: true

@@ -9,10 +9,8 @@ export default function FavoriteCard(props) {
     return (
         <div className="favoritesCard">
             <h1>favorites card</h1>
-            {props.title}
+            <a href={props.spoonacularSourceUrl} target="_blank">{props.title}</a>
             <img src={props.image} alt="food" />
-    
-           
         </div>
     )
 }

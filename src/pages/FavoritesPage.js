@@ -34,7 +34,7 @@ export default function FavoritesPage(props) {
                 {favorites.map((favorite, i) => {
                         return (
                             <div key={i}>
-                               <FavoriteCard title={favorite.title} image={favorite.image} sourceUrl={favorite.sourceUrl} />
+                               <FavoriteCard title={favorite.title} image={favorite.image} spoonacularSourceUrl={favorite.spoonacularSourceUrl}/>
                             
                             </div>
                         )

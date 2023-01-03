@@ -3,7 +3,7 @@ const express = require('express')
 const path = require('path')
 const favicon = require('serve-favicon')
 const morgan = require ('morgan')
-const bodyParser = require('body-parser')
+//const bodyParser = require('body-parser')
 
 // REQUIRE AND CONFIG DOTENV:
 require('dotenv').config()
@@ -16,7 +16,7 @@ const app = express()
 // MIDDLEWARE:
 app.use(morgan('dev'))
 app.use(express.json())
-app.use(bodyParser.json())
+//app.use(bodyParser.json())
 
 // MOUNT MIDDLEWARE:
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
