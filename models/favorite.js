@@ -2,11 +2,14 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const favoriteSchema = new Schema({
-    title: {type: String}
+    title: {type: String},
+    image: {type: String},
+    id: {type: Number}
     },
     {
         timestamps: true
     }
 )
 
-module.exports = mongoose.model("Favorite", favoriteSchema)
+const Favorite = mongoose.model("Favorite", favoriteSchema)
+module.exports = Favorite

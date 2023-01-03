@@ -6,7 +6,7 @@ module.exports = {
 
 async function create(req, res) {
     try {
-
+        console.log('REQ.BODY = ' + req.body)
         const favorite = await Favorite.create(req.body)
         console.log('controller is working')
 

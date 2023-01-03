@@ -36,7 +36,7 @@ export default function Homepage(props) {
                     {ingredients.map((recipe) => {
                         return (
                             <div key={recipe.id}>
-                                <div><RecipeCard title={recipe.title} /></div>
+                                <div><RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} /></div>
                             </div>
                         )
                     })}

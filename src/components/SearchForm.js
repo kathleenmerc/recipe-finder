@@ -33,6 +33,7 @@ export default function SearchForm(props) {
                 <input className="search" type="text" name="ingredients" onChange={handleChange} />
                 <button type="submit">Search</button>
             </form>
+            
             {
                 error ? <p>Please enter an ingredient</p> : ""
             }
