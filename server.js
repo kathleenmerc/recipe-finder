@@ -4,6 +4,7 @@ const path = require('path')
 const favicon = require('serve-favicon')
 const morgan = require ('morgan')
 const bodyParser = require('body-parser')
+const { default: mongoose } = require('mongoose')
 
 // REQUIRE AND CONFIG DOTENV:
 require('dotenv').config()
@@ -24,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 //app.use(require('./config/checkToken'))
 
 // MOUNT API ROUTES:
-app.use('/api/favorites', require('./routes/api/favorites'))
+//app.use('/api/favorites', require('./routes/api/favorites'))
 
 
 // CATCH ALL ROUTE:

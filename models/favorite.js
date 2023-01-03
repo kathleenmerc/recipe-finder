@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 const favoriteSchema = new Schema({
     title: {type: String},
     image: {type: String},
-    id: {type: Number}
+    id: {type: Number},
+    sourceUrl: {type: String}
     },
     {
         timestamps: true

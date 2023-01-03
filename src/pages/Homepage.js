@@ -5,13 +5,25 @@ import RecipeCard from "../components/RecipeCard"
 
 export default function Homepage(props) {
     const [ingredients, setIngredients] = useState(null)
+    const [favorite, setFavorite] = useState(null)
 
-    //const MyApiKey = process.env.API_KEY
+    const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
+
+    const getFavorite = async (id) => {
+        try {
+            const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${REACT_APP_API_KEY}&includeNutrition=false`)
+            const favInfo = await response.json()
+            setFavorite(favInfo)
+            console.log(favInfo)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     const getIngredients = async (searchTerm) => {
         try {
             console.log('working before string')
-            const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=fa9fcf5d3f1d4146b14d1b4acc7d55e1&ingredients=${searchTerm}&number=2`)
+            const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${searchTerm}&number=2`)
 
             console.log('working after string')
             const data = await response.json()
@@ -22,6 +34,8 @@ export default function Homepage(props) {
             console.log(err)
         }
     }
+
+
 
     //  //This will run on the first render but not on subsquent renders
     // useEffect(() => {
@@ -36,7 +50,7 @@ export default function Homepage(props) {
                     {ingredients.map((recipe) => {
                         return (
                             <div key={recipe.id}>
-                                <div><RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} /></div>
+                                <div><RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} getFavorite={getFavorite} favorite={favorite}/></div>
                             </div>
                         )
                     })}

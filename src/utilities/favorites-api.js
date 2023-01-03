@@ -16,7 +16,7 @@ async function sendRequest (url, method = 'GET', favoriteData) {
     if (favoriteData) {
         options.body = favoriteData
     }
-     
+    
     const res = await fetch(url, options)
     console.log(res)
     console.log('OPTIONs.BDOY HERE = '  + options.body)
