@@ -1,4 +1,4 @@
-import styles from './Homepage.module.css'
+import styles from './SearchPage.module.css'
 import { useState, useEffect } from "react"
 import SearchForm from "../../components/SearchForm/SearchForm"
 import RecipeCard from "../../components/RecipeCard/RecipeCard"
@@ -7,7 +7,7 @@ import { addFavorite } from "../../utilities/favorites-api"
 
 
 
-export default function Homepage({ user, setUser }) {
+export default function SearchPage({ user, setUser }) {
     const [ingredients, setIngredients] = useState(null)
     const [favorite, setFavorite] = useState([])
 
@@ -79,7 +79,7 @@ export default function Homepage({ user, setUser }) {
                 <h1 className={styles.header}>Recipe Finder</h1>
             </div>
 
-            <Nav />
+            <Nav setUser={setUser}/>
             <SearchForm getIngredients={getIngredients} />
 
             <div>

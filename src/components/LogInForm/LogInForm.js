@@ -48,7 +48,7 @@ export default function LogInForm(props) {
 
                 <button className={styles.logInBtn} type="submit" disabled={disable}>LOG IN</button>
             </form>
-            <Link to="/login"><button className={styles.linkBtn}>Don't have an account? Sign up here.</button></Link>
+            <Link to="/"><button className={styles.linkBtn}>Don't have an account? Sign up here.</button></Link>
 
             <p className="error-message">{error}</p>
         </div>

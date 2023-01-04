@@ -53,7 +53,7 @@ export default function FavoritesPage(props) {
                 <h1 className={styles.header}>Favorite Recipes</h1>
             </div>
 
-            <Nav />
+            <Nav setUser={props.setUser}/>
 
             {favorites ? loaded() : loading()}
         </div>

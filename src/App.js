@@ -1,6 +1,6 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Homepage from './pages/Homepage/Homepage';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import SearchPage from './pages/SearchPage/SearchPage';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import FavoriteCard from './components/FavoriteCard/FavoriteCard';
 
@@ -18,7 +18,7 @@ function App(props) {
     <div className="App">
       {user ?
           <Routes>
-            <Route path="/" element={<Homepage setUser={setUser}/>} />
+            <Route path="/" element={<SearchPage setUser={setUser}/>} />
             <Route path="/favorites" element={<FavoritesPage setUser={setUser}/>} />
             <Route path="/favorites/:id" element={<FavoriteCard id={props.id} setUser={setUser}/>} />
           </Routes>
@@ -28,6 +28,7 @@ function App(props) {
         <Routes>
           <Route path="/" element={<SignUpPage setUser={setUser} />} />
           <Route path="/login" element={<LogInPage setUser={setUser} />} />
+          <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>
       }
 
