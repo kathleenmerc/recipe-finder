@@ -1,0 +1,21 @@
+.nav {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #014e15;
+    width:100vw;
+}
+
+.navLink {
+    padding: 10px;
+    margin:5px;
+    color: #FFEBB7;
+}
+
+.navLink:hover {
+    background-color: #FFEBB7;
+    color: #014e15;
+    border-radius: 10px;
+    padding: 5px
+}

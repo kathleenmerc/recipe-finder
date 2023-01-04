@@ -1,7 +1,9 @@
+import styles from './Homepage.module.css'
 import { useState, useEffect } from "react"
-import SearchForm from "../components/SearchForm"
-import RecipeCard from "../components/RecipeCard"
-import { addFavorite } from "../utilities/favorites-api"
+import SearchForm from "../../components/SearchForm/SearchForm"
+import RecipeCard from "../../components/RecipeCard/RecipeCard"
+import Nav from "../../components/Nav/Nav"
+import { addFavorite } from "../../utilities/favorites-api"
 
 
 export default function Homepage(props) {
@@ -9,7 +11,7 @@ export default function Homepage(props) {
     const [favorite, setFavorite] = useState([])
 
     const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
-    
+
     const getFavorite = async (id) => {
         try {
             // CODE FLOW TO GET AND SET RECIPE DATA FOR NEW FAVORITE:
@@ -18,12 +20,12 @@ export default function Homepage(props) {
             setFavorite(favInfo)
             console.log(favInfo)
             //console.log(favorite)
-            
+
             // CODE FLOW TO ADD FAVORITE TO DATABASE:
             const newFavorite = await addFavorite(favInfo)
             console.log(newFavorite)
 
-            
+
 
         } catch (err) {
             console.log(err)
@@ -34,7 +36,7 @@ export default function Homepage(props) {
         try {
             // CODE FLOW TO GET RECIPES FROM SEARCHING INGREDIENTS:
             //console.log('working before string')
-            const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${searchTerm}&number=2`)
+            const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${searchTerm}&number=9`)
 
             //console.log('working after string')
             const data = await response.json()
@@ -57,11 +59,11 @@ export default function Homepage(props) {
         return (
             <div>
 
-                <div>
+            <div className={styles.recipeCardContainer}>
                     {ingredients.map((recipe) => {
                         return (
                             <div key={recipe.id}>
-                                <div><RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} getFavorite={getFavorite} favorite={favorite}/></div>
+                                <div><RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} spoonacularSourceUrl={recipe.spoonacularSourceUrl} getFavorite={getFavorite} favorite={favorite} /></div>
                             </div>
                         )
                     })}
@@ -72,13 +74,17 @@ export default function Homepage(props) {
     }
 
     const loading = () => {
-        return <h1>Loading...</h1>
+        return <></>
     }
 
 
     return (
-        <div className="homepage">
-            <h1>homepage</h1>
+        <div className={styles.homepage}>
+            <div className={styles.headerContainer}>
+                <h1 className={styles.header}>Recipe Finder</h1>
+            </div>
+            <Nav />
+
             <SearchForm getIngredients={getIngredients} />
             <div>
                 {ingredients ? loaded() : loading()}

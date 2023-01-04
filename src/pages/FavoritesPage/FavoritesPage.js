@@ -1,7 +1,9 @@
+import styles from './FavoritesPage.module.css'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import * as favoritesAPI from '../utilities/favorites-api'
-import FavoriteCard from '../components/FavoriteCard';
+import * as favoritesAPI from '../../utilities/favorites-api'
+import FavoriteCard from '../../components/FavoriteCard/FavoriteCard';
+import Nav from '../../components/Nav/Nav';
 
 
 export default function FavoritesPage(props) {
@@ -34,23 +36,26 @@ export default function FavoritesPage(props) {
     //     await favoritesAPI.deleteFavorite(props.id)
     // }
 
-   
 
-    
+
+
 
     const loaded = () => {
         return (
             <div>
-                {favorites.map((favorite, i) => {
-                    return (
-                        <div key={i}>
-                            <FavoriteCard title={favorite.title} image={favorite.image} id={favorite.id} spoonacularSourceUrl={favorite.spoonacularSourceUrl} />
-                            {/* <button type="submit" onClick={handleDelete}> delete</button> */}
-                        </div>
-                    )
-                })
-                }
+                <div className={styles.favoritesCardContainer}>
+                    {favorites.map((favorite) => {
+                        return (
+                            <div key={favorite.id}>
 
+                                <FavoriteCard title={favorite.title} image={favorite.image} id={favorite.id} spoonacularSourceUrl={favorite.spoonacularSourceUrl} getFavorites={getFavorites}/>
+                                {/* <button type="submit" onClick={handleDelete}> delete</button> */}
+
+                            </div>
+                        )
+                    })
+                    }
+                </div>
             </div>
         )
     }
@@ -61,8 +66,11 @@ export default function FavoritesPage(props) {
 
 
     return (
-        <div className="favoritesPage">
-            <h1>favorites page</h1>
+        <div className={styles.favoritesPage}>
+            <div className={styles.headerContainer}>
+                <h1 className={styles.header}>Favorite Recipes</h1>
+            </div>
+            <Nav />
             {favorites ? loaded() : loading()}
 
 
