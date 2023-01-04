@@ -1,4 +1,6 @@
+import { getToken } from './users-service'
 const BASE_URL = '/api/favorites';
+
 
 export async function addFavorite(favInfo) {
     return sendRequest(BASE_URL, 'POST', favInfo)
@@ -23,8 +25,17 @@ async function sendRequest(url, method = 'GET', favInfo = null) {
         options.body = JSON.stringify(favInfo);
     }
     
+
+    const token = getToken()
+    if (token) {
+        options.headers = options.headers || {}
+        options.headers.Authorization = `Bearer ${token}`
+    }
     const res = await fetch(url, options)
     console.log(res)
+
+
+
 
     if (res.ok) {
         return res.json()

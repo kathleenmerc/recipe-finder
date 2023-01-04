@@ -1,0 +1,34 @@
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    padding: 2px 0px;
+}
+
+input {
+    margin: 5px 0px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+.signUpBtn {
+    border: none;
+    background-color: white;
+    margin: 5px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #7439db;
+}
+
+.linkBtn {
+    background: none;
+    color: white;
+    text-decoration: underline;
+    border: none;
+}

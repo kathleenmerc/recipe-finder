@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const favoriteSchema = new Schema({
+    //userId:
     title: { type: String },
     image: { type: String },
     id: { type: Number },

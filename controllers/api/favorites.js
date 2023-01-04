@@ -8,6 +8,9 @@ module.exports = {
 
 async function create(req, res) {
     try {
+        console.log(req.params.userId)
+        req.body.userId = req.params.userId
+        
         const favorite = await Favorite.create(req.body)
         console.log(favorite)
         res.json(favorite)
@@ -18,6 +21,7 @@ async function create(req, res) {
 
 async function index(req, res) {
     try {
+        //look up docs, filter
         const favorites = await Favorite.find({})
         res.status(200).json(favorites)
     } catch (err) {
