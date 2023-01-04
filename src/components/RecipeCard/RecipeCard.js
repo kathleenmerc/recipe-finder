@@ -12,13 +12,11 @@ export default function RecipeCard(props) {
         image: props.image,
         id: props.id,
         spoonacularSourceUrl: props.spoonacularSourceUrl
-
     })
 
     const [error, setError] = useState(false)
 
     const handleChange = (evt) => {
-        // setFavoriteData({...favoriteData, [evt.target.name] : evt.target.value})
         setFavoriteData({ ...favoriteData, [evt.target.name]: props.value })
     }
 
@@ -28,9 +26,6 @@ export default function RecipeCard(props) {
             setError(false)
             props.getFavorite(favoriteData.id)
             alert(`Added ${favoriteData.title} to your favorites`)
-            // const favorite = await favoritesAPI.addFavorite(props)
-            // console.log(favorite)
-            // console.log(props)
         } catch {
             setError(true)
         }
@@ -44,6 +39,5 @@ export default function RecipeCard(props) {
                 <button className={styles.favButton} type="submit" value={props} onChange={handleChange}><FiPlusCircle className={styles.addIcon} /> Add to favorites</button>
             </form>
         </div>
-
     )
 }

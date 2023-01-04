@@ -1,34 +1,34 @@
 .favoritesPage {
-    height: 100%;
-    width: 100vw;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    min-width:80%;
-    align-items: center;
-    color: #FFEBB7;
-  }
-  
-  .header {
-    color:#0b4618;
-    letter-spacing: 2px;
-    text-shadow:-3px 3px #FFEBB7;
-  }
+  height: 100%;
+  width: 100vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 80%;
+  align-items: center;
+  color: #FFEBB7;
+}
 
-  .headerContainer {
-    background-image: url('../../images/banner2.png');
-    background-size:cover;
-    width: 100vw;
-  }
+.header {
+  color: #0b4618;
+  letter-spacing: 2px;
+  text-shadow: -3px 3px #FFEBB7;
+}
 
-  .favoritesCardContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    border: black 1px solid;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
+.headerContainer {
+  background-image: url('../../images/banner2.png');
+  background-size: cover;
+  width: 100vw;
+}
+
+.favoritesCardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: black 1px solid;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
 }

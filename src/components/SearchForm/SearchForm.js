@@ -1,7 +1,5 @@
 import styles from './SearchForm.module.css'
 import { useState, useEffect } from 'react'
-const tomatoes = require('../../images/tomatoes.jpg')
-
 
 export default function SearchForm(props) {
     const [formData, setFormData] = useState({
@@ -10,10 +8,7 @@ export default function SearchForm(props) {
 
     const [error, setError] = useState(false)
 
-
     const handleChange = (event) => {
-        // let string = event.target.value
-        // let newString = string.replace(/,/g, ',+')
         setFormData({ ...formData, [event.target.name]: event.target.value })
     }
 
@@ -40,15 +35,12 @@ export default function SearchForm(props) {
                 <h5>Step 3: Choose your favorite recipes</h5>
             </div>
 
-
             <form onSubmit={handleSubmit} className={styles.searchContainer}>
                 <input className={styles.searchbar} type="text" name="ingredients" onChange={handleChange} placeholder="chicken, apples, butter" />
                 <button type="submit" className={styles.searchbutton}>Search</button>
             </form>
 
-            {
-                error ? <p>Please enter an ingredient</p> : ""
-            }
+            {error ? <p>Please enter an ingredient</p> : ""}
         </div>
     )
 };

@@ -1,15 +1,9 @@
 .App {
   background-color: rgba(30, 99, 0, 0.676);
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-sizing: border-box;
   height: 100%;
   width: 100%;
   margin: 0 auto;
   padding: 0 auto;
 }
-
-
-
-
-
-

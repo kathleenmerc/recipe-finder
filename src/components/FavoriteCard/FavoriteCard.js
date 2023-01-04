@@ -1,7 +1,6 @@
 import styles from './FavoriteCard.module.css'
 import { useState, useEffect } from "react"
 import * as favoritesAPI from '../../utilities/favorites-api'
-import { Link } from "react-router-dom"
 import { FiXCircle } from "react-icons/fi";
 
 export default function FavoriteCard(props) {
@@ -20,6 +19,7 @@ export default function FavoriteCard(props) {
         props.getFavorites()
 
     }
+
     // const handleSubmit = async (evt) => {
     //     evt.preventDefault()
     //     await favoritesAPI.deleteFavorite(props.id)
@@ -35,21 +35,16 @@ export default function FavoriteCard(props) {
     // }
 
 
-
     return (
         <div className={styles.favoritesCard}>
-                <FiXCircle className={styles.closebutton} onClick={handleClick} value={props}/>
-            
-            
+            <FiXCircle className={styles.closebutton} onClick={handleClick} value={props} />
+
             <div className={styles.recipe}>
                 <a href={props.spoonacularSourceUrl} target="_blank" className={styles.link}>
                     <div className={styles.truncate}>{props.title}</div>
                     <img src={props.image} alt="food image" />
                 </a>
             </div>
-
-
-
 
             {/* <form onSubmit={handleSubmitEdit}>
                     <button type="submit" onClick={handleClickEdit} value={props}>edit</button>

@@ -5,19 +5,16 @@ import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import FavoriteCard from './components/FavoriteCard/FavoriteCard';
 
 
-
 function App(props) {
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/favorites/:id" element={<FavoriteCard id={props.id} />} />
+      </Routes>
+    </div>
+  );
+}
 
-
-    return (
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/favorites/:id" element={<FavoriteCard id={props.id}/>} />
-        </Routes>
-      </div>
-    );
-  }
-
-  export default App;
+export default App;

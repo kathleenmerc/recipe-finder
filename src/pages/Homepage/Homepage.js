@@ -19,14 +19,11 @@ export default function Homepage(props) {
             const favInfo = await response.json()
             setFavorite(favInfo)
             console.log(favInfo)
-            //console.log(favorite)
 
             // CODE FLOW TO ADD FAVORITE TO DATABASE:
             const newFavorite = await addFavorite(favInfo)
             console.log(newFavorite)
-
-
-
+            
         } catch (err) {
             console.log(err)
         }
@@ -35,12 +32,8 @@ export default function Homepage(props) {
     const getIngredients = async (searchTerm) => {
         try {
             // CODE FLOW TO GET RECIPES FROM SEARCHING INGREDIENTS:
-            //console.log('working before string')
             const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${searchTerm}&number=9`)
-
-            //console.log('working after string')
             const data = await response.json()
-            //console.log('working after data json')
             setIngredients(data)
             console.log(data)
         } catch (err) {
@@ -48,18 +41,15 @@ export default function Homepage(props) {
         }
     }
 
-
-
-    //  //This will run on the first render but not on subsquent renders
-    // // useEffect(() => {
-    // //     getIngredients()
-    // // }, [])
+    // This will run on the first render but not on subsquent renders
+    // useEffect(() => {
+    //     getIngredients()
+    // }, [])
 
     const loaded = () => {
         return (
             <div>
-
-            <div className={styles.recipeCardContainer}>
+                <div className={styles.recipeCardContainer}>
                     {ingredients.map((recipe) => {
                         return (
                             <div key={recipe.id}>
@@ -68,7 +58,6 @@ export default function Homepage(props) {
                         )
                     })}
                 </div>
-
             </div>
         )
     }
@@ -83,9 +72,10 @@ export default function Homepage(props) {
             <div className={styles.headerContainer}>
                 <h1 className={styles.header}>Recipe Finder</h1>
             </div>
-            <Nav />
 
+            <Nav />
             <SearchForm getIngredients={getIngredients} />
+            
             <div>
                 {ingredients ? loaded() : loading()}
             </div>
