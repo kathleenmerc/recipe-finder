@@ -12,7 +12,9 @@ export default function FavoritesPage(props) {
         try {
             const foundFavorites = await favoritesAPI.getFavoritesAPI()
             setFavorites(foundFavorites)
+            console.log('foundfavorites')
             console.log(foundFavorites)
+
         } catch (err) {
             console.log(err)
         }

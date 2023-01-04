@@ -24,8 +24,10 @@ export default function RecipeCard(props) {
         evt.preventDefault()
         try {
             setError(false)
+            console.log('fav data id')
+            console.log(favoriteData.id)
             props.getFavorite(favoriteData.id)
-            alert(`Added ${favoriteData.title} to your favorites`)
+            //alert(`Added ${favoriteData.title} to your favorites`)
         } catch {
             setError(true)
         }

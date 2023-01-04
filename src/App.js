@@ -18,9 +18,9 @@ function App(props) {
     <div className="App">
       {user ?
           <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
-            <Route path="/favorites/:id" element={<FavoriteCard id={props.id} />} />
+            <Route path="/" element={<Homepage setUser={setUser}/>} />
+            <Route path="/favorites" element={<FavoritesPage setUser={setUser}/>} />
+            <Route path="/favorites/:id" element={<FavoriteCard id={props.id} setUser={setUser}/>} />
           </Routes>
       
         :

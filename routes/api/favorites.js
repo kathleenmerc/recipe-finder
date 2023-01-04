@@ -6,7 +6,7 @@ const favoritesController = require('../../controllers/api/favorites');
 //const urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 // POST /api/favorites
-router.post('/:userId', favoritesController.create);
+router.post('/add', favoritesController.create);
 
 // GET /api/favorites
 router.get('/', favoritesController.index)

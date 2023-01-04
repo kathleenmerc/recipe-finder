@@ -8,9 +8,6 @@ module.exports = {
 
 async function create(req, res) {
     try {
-        console.log(req.params.userId)
-        req.body.userId = req.params.userId
-        
         const favorite = await Favorite.create(req.body)
         console.log(favorite)
         res.json(favorite)
@@ -21,8 +18,12 @@ async function create(req, res) {
 
 async function index(req, res) {
     try {
+        console.log('look in here')
+        console.log('req params userId is here in controllers')
+        console.log(req.params.userId)
+        req.body.userId = req.params.userId
         //look up docs, filter
-        const favorites = await Favorite.find({})
+        const favorites = await Favorite.find({ userId: req.body.userId })
         res.status(200).json(favorites)
     } catch (err) {
         res.status(400).json(err)
@@ -31,7 +32,8 @@ async function index(req, res) {
 
 async function remove(req, res) {
     try {
-        const favorites = await Favorite.findOneAndDelete({ id: req.params.id })
+        req.body.userId = req.params.userId
+        const favorites = await Favorite.findOneAndDelete({ id: req.body.userId })
         res.status(200).json(favorites)
     } catch (err) {
         res.status(400).json(err)

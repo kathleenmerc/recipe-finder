@@ -7,24 +7,29 @@ import { addFavorite } from "../../utilities/favorites-api"
 
 
 
-export default function Homepage(props) {
+export default function Homepage({ user, setUser }) {
     const [ingredients, setIngredients] = useState(null)
     const [favorite, setFavorite] = useState([])
 
     const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
 
-    const getFavorite = async (id) => {
+    const getFavorite = async (id, evt) => {
         try {
             // CODE FLOW TO GET AND SET RECIPE DATA FOR NEW FAVORITE:
             const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${REACT_APP_API_KEY}&includeNutrition=false`)
             const favInfo = await response.json()
             setFavorite(favInfo)
+            console.log('favinfo')
             console.log(favInfo)
 
             // CODE FLOW TO ADD FAVORITE TO DATABASE:
             const newFavorite = await addFavorite(favInfo)
+            console.log('new favorite here')
+            console.log(favInfo)
             console.log(newFavorite)
-            
+
+
+
         } catch (err) {
             console.log(err)
         }
@@ -54,7 +59,7 @@ export default function Homepage(props) {
                     {ingredients.map((recipe) => {
                         return (
                             <div key={recipe.id}>
-                                <div><RecipeCard title={recipe.title} image={recipe.image} id={recipe.id} spoonacularSourceUrl={recipe.spoonacularSourceUrl} getFavorite={getFavorite} favorite={favorite} /></div>
+                                <div><RecipeCard user={user} setUser={setUser} title={recipe.title} image={recipe.image} id={recipe.id} spoonacularSourceUrl={recipe.spoonacularSourceUrl} getFavorite={getFavorite} favorite={favorite} /></div>
                             </div>
                         )
                     })}
@@ -76,7 +81,7 @@ export default function Homepage(props) {
 
             <Nav />
             <SearchForm getIngredients={getIngredients} />
-            
+
             <div>
                 {ingredients ? loaded() : loading()}
             </div>
