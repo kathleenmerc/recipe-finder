@@ -5,7 +5,7 @@ const SALT_ROUNDS = 6
 
 const userSchema = new Schema ({
     username: {type: String, unique: true, trim: true, required: true},
-    password: {type: String, trim: true, minLength: 7, required: true}
+    password: {type: String, trim: true, minLength: 7, required: true},
     },
     {
         timestamps: true,
@@ -25,7 +25,7 @@ userSchema.pre('save', async function (next) {
     
     // Update the password with the computed hash:
     this.password = await bcrypt.hash(this.password, SALT_ROUNDS)
-    return next
+    return next()
 })
 
 

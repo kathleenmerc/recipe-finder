@@ -36,7 +36,7 @@ const BASE_URL = '/api/users'
 
 
 export function signUpAPI(userData) {
-    return sendRequest(`${BASE_URL}/signup`, 'POST', userData)
+    return sendRequest(`${BASE_URL}`, 'POST', userData)
 }
 
 export function logInAPI(userData) {
@@ -51,7 +51,7 @@ export function checkTokenAPI(userData) {
 
 
 // HELPER FUNCTIONS:
-async function sendRequest (url, method = 'GET', payload = null) {
+export default async function sendRequest (url, method = 'GET', payload = null) {
     
     // If the request has payload, then add headers and body in the response:
     const options = { method }

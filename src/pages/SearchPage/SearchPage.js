@@ -38,7 +38,7 @@ export default function SearchPage({ user, setUser }) {
     const getIngredients = async (searchTerm) => {
         try {
             // CODE FLOW TO GET RECIPES FROM SEARCHING INGREDIENTS:
-            const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${searchTerm}&number=9`)
+            const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${searchTerm}&number=2`)
             const data = await response.json()
             setIngredients(data)
             console.log(data)
@@ -74,7 +74,7 @@ export default function SearchPage({ user, setUser }) {
 
 
     return (
-        <div className={styles.homepage}>
+        <div className={styles.searchPage}>
             <div className={styles.headerContainer}>
                 <h1 className={styles.header}>Recipe Finder</h1>
             </div>

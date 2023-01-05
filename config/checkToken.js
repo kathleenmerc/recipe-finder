@@ -1,25 +1,30 @@
-// config/checkToken.js
+const jwt = require('jsonwebtoken')
 
-const jwt = require('jsonwebtoken');
 
-module.exports = function(req, res, next) {
-  // Check for the token being sent in a header or as a query parameter
-  let token = req.get('Authorization') || req.query.token;
-  if (token) {
-    // Remove the 'Bearer ' if it was included in the token header
-    token = token.replace('Bearer ', '');
-    // Check if token is valid and not expired
-    jwt.verify(token, process.env.SECRET, function(err, decoded) {
-      // If valid token, decoded will be the token's entire payload
-      // If invalid token, err will be set
-      req.user = err ? null : decoded.user;  
-      // If your app cares... (optional)
-      req.exp = err ? null : new Date(decoded.exp * 1000);  
-      return next();
-    });
-  } else {
-    // No token was sent
-    req.user = null;
-    return next();
-  }
-};
+module.exports = function (req, res, next) {
+    // Retrieve the token from the Authorization header from the HTTP request:
+    // Or retrive the token from where it is being sent a query string parameter:
+    let token = req.get('Authorization') || req.query.token
+
+    // If there is a token, then remove 'Bearer' so only the token is in the header:
+    if (token) {
+        token = token.replace('Bearer ', '')
+
+        // Use the verify method to check if the token is valid and has not expired:
+        jwt.verify(token, process.env.SECRET, function (err, decoded) {
+
+            // Set req.user to null if there is an error, else req.user is decoded:
+            req.user = err ? null : decoded.user
+
+            // Set req.exp to null if there is an error, else req.exp is the date:
+            req.exp = err ? null : new Date(decoded.exp * 1000)
+
+            // Middleware continues to next function:
+            return next()
+        })
+    } else {
+        // If no token was sent in the request, req.user is null:
+        req.user = null
+        return next()
+    }
+}

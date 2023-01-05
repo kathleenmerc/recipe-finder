@@ -33,7 +33,7 @@ async function index(req, res) {
 async function remove(req, res) {
     try {
         req.body.userId = req.params.userId
-        const favorites = await Favorite.findOneAndDelete({ id: req.body.userId })
+        const favorites = await Favorite.findOneAndDelete({ userId: req.body.userId })
         res.status(200).json(favorites)
     } catch (err) {
         res.status(400).json(err)
