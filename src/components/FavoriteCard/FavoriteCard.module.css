@@ -1,5 +1,5 @@
 img {
-    width:200px;
+    width: 200px;
     border-radius: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -19,7 +19,7 @@ img {
     color: black;
 }
 
-.favoritesCard:hover{
+.favoritesCard:hover {
     zoom: 105%;
 }
 
@@ -27,8 +27,8 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top:10px;
-    max-width:200px;
+    margin-top: 10px;
+    max-width: 200px;
 }
 
 .link {
@@ -45,28 +45,29 @@ img {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
-            line-clamp: 2;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
     -webkit-box-orient: vertical;
- }
+}
 
 .closebutton {
     color: black;
-    cursor:pointer;
-    font-size:20px;
+    cursor: pointer;
+    font-size: 20px;
 }
 
-.closebutton:hover{
-    color:red;
+.closebutton:hover {
+    color: red;
 }
 
 .checkbox {
     display: flex;
     flex-direction: row;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
 }
 
-.checkbox > input {
+.checkbox>input {
     margin: 10px;
 }

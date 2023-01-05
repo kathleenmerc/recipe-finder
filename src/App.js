@@ -1,15 +1,16 @@
 import './App.css';
+import { useState } from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Homepage from './pages/Homepage/Homepage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import FavoriteCard from './components/FavoriteCard/FavoriteCard';
-
-import { useState } from 'react'
-
 import LogInPage from './pages/LogInPage/LogInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import { getUser } from './utilities/users-service'
+
+
+
 
 
 function App(props) {
@@ -17,7 +18,7 @@ function App(props) {
 
   return (
     <div className="App">
-      { user ?
+      {user ?
         <Routes>
           <Route path="/search" element={<SearchPage user={user} setUser={setUser} />} />
           <Route path="/favorites" element={<FavoritesPage user={user} setUser={setUser} />} />
@@ -26,7 +27,7 @@ function App(props) {
         </Routes>
 
         :
-       
+
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/signup" element={<SignUpPage setUser={setUser} />} />
@@ -34,11 +35,6 @@ function App(props) {
           <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
 
-         // <>
-        //   <Homepage />
-        //   <SignUpPage setUser={setUser} />
-        //   <LogInPage setUser={setUser} />
-        // </>
       }
 
     </div>

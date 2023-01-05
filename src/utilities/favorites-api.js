@@ -1,7 +1,10 @@
 import { getToken } from './users-service'
+
+// BASE PATH FOR THE EXPRESS ROUTE:
 const BASE_URL = '/api/favorites';
 
 
+// FAVORITES FUNCTIONS:
 export async function addFavorite(favInfo) {
     console.log('api function here')
     console.log(favInfo)

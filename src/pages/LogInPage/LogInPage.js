@@ -1,6 +1,5 @@
-import LogInForm from "../../components/LogInForm/LogInForm";
 import styles from './LoginPage.module.css'
-
+import LogInForm from "../../components/LogInForm/LogInForm";
 
 
 export default function LogInPage(props) {

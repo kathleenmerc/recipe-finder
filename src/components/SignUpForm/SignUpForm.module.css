@@ -19,9 +19,8 @@ input {
 .inputSection {
     display: flex;
     flex-direction: column;
-    margin:5px;
+    margin: 5px;
 }
-
 
 .signUpBtn {
     margin: 5px 0px;
@@ -43,6 +42,7 @@ input {
     color: white;
     cursor: pointer;
 }
+
 .linkBtn {
     background: none;
     color: white;

@@ -49,11 +49,12 @@ export default function FavoritesPage(props) {
 
     return (
         <div className={styles.favoritesPage}>
+            
             <div className={styles.headerContainer}>
                 <h1 className={styles.header}>Favorite Recipes</h1>
             </div>
 
-            <Nav setUser={props.setUser}/>
+            <Nav setUser={props.setUser} />
 
             {favorites ? loaded() : loading()}
         </div>

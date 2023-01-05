@@ -9,10 +9,9 @@ module.exports = {
 }
 
 // ADD NEW USER TO DATABASE AND CREATE JWT TOKEN:
-async function create (req, res) {
+async function create(req, res) {
     try {
         const user = await User.create(req.body)
-
         const token = createJWT(user)
         res.json(token)
     } catch (err) {
@@ -20,8 +19,8 @@ async function create (req, res) {
     }
 }
 
-
-async function login (req, res) {
+// LOG IN USER:
+async function login(req, res) {
     try {
         // Find the user by finding username in database:
         const user = await User.findOne({ username: req.body.username })
@@ -44,18 +43,19 @@ async function login (req, res) {
 }
 
 
-function checkToken (req, res) {
+function checkToken(req, res) {
     console.log('req.user', req.user)
     console.log('req.exp', req.exp)
     res.json(req.exp)
 }
 
+
 // HELPER FUNCTIONS:
 
 function createJWT(user) {
     return jwt.sign(
-        {user}, 
-        process.env.SECRET, 
-        {expiresIn: '24hr'}
+        { user },
+        process.env.SECRET,
+        { expiresIn: '24hr' }
     )
 }

@@ -1,4 +1,4 @@
-// IMPORT ALL NAMED EXPORTS ATTACHED TO USERSAPI OBJECT:
+// IMPORTS ALL NAMED EXPORTS ATTACHED TO USERSAPI OBJECT:
 import * as usersAPI from './users-api'
 
 export async function signUpService(userData) {
@@ -13,22 +13,19 @@ export async function signUpService(userData) {
 
 export async function logInService(userData) {
     const token = await usersAPI.logInAPI(userData)
-
     localStorage.setItem("token", token)
     return getUser()
-
-
 }
-
 
 
 export function getToken() {
     // Retrieve token from localStorage:
     const token = localStorage.getItem("token")
     console.log(token)
+
     // Check if there is no token, then return user's state as null:
     if (!token) return null
-    
+
     // Retrieve the token payload and parse into JSON object:
     const payload = JSON.parse(atob(token.split('.')[1]))
 
@@ -42,7 +39,8 @@ export function getToken() {
     return token;
 }
 
-export function getUser () {
+
+export function getUser() {
     // Retrieve the token from the getToken function:
     const token = getToken()
 
@@ -51,12 +49,14 @@ export function getUser () {
     return token ? JSON.parse(atob(token.split('.')[1])).user : null
 }
 
-export function logOut () {
+
+export function logOut() {
     localStorage.removeItem('token')
 }
 
-export function checkToken () {
+
+export function checkToken() {
     return usersAPI.checkTokenAPI()
-            .then(dateString => new Date(dateString))
+        .then(dateString => new Date(dateString))
 }
 

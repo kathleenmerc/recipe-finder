@@ -1,7 +1,5 @@
 import styles from './RecipeCard.module.css'
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import * as favoritesAPI from '../../utilities/favorites-api'
 import { FiPlusCircle } from "react-icons/fi";
 
 

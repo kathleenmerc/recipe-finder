@@ -25,7 +25,6 @@ export default function SearchForm(props) {
     return (
         <div className={styles.searchform}>
 
-
             <div className={styles.steps}>
                 <h5>Step 1: Add your ingredients</h5>
                 <h5>Step 2: Hit Search</h5>

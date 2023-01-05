@@ -19,7 +19,7 @@ input {
 .inputSection {
     display: flex;
     flex-direction: column;
-    margin:5px;
+    margin: 5px;
 }
 
 
@@ -43,6 +43,7 @@ input {
     color: white;
     cursor: pointer;
 }
+
 .linkBtn {
     background: none;
     color: white;

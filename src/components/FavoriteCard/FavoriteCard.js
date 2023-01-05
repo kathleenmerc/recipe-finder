@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import * as favoritesAPI from '../../utilities/favorites-api'
 import { FiXCircle } from "react-icons/fi";
 
+
 export default function FavoriteCard(props) {
 
     const [fav, setFav] = useState({
@@ -27,13 +28,9 @@ export default function FavoriteCard(props) {
 
     }
 
-    // const handleSubmit = async (evt) => {
-    //     evt.preventDefault()
-    //     await favoritesAPI.deleteFavorite(props.id)
-    // }
-
 
     const handleChange = async (evt) => {
+        // Still needs to be modified:
         try {
             if (evt.target.value === "on" || evt.target.value === "true") {
                 evt.target.value = "true"

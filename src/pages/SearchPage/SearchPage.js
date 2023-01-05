@@ -6,7 +6,6 @@ import Nav from "../../components/Nav/Nav"
 import { addFavorite } from "../../utilities/favorites-api"
 
 
-
 export default function SearchPage({ user, setUser }) {
     const [ingredients, setIngredients] = useState(null)
     const [favorite, setFavorite] = useState([])
@@ -28,8 +27,6 @@ export default function SearchPage({ user, setUser }) {
             console.log(favInfo)
             console.log(newFavorite)
 
-
-
         } catch (err) {
             console.log(err)
         }
@@ -47,7 +44,7 @@ export default function SearchPage({ user, setUser }) {
         }
     }
 
-    // This will run on the first render but not on subsquent renders
+    // This will run on the first render but not on subsquent renders:
     // useEffect(() => {
     //     getIngredients()
     // }, [])
@@ -72,14 +69,14 @@ export default function SearchPage({ user, setUser }) {
         return <></>
     }
 
-
     return (
         <div className={styles.searchPage}>
+
             <div className={styles.headerContainer}>
                 <h1 className={styles.header}>Recipe Finder</h1>
             </div>
 
-            <Nav setUser={setUser}/>
+            <Nav setUser={setUser} />
             <SearchForm getIngredients={getIngredients} />
 
             <div>
