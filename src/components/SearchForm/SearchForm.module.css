@@ -12,7 +12,7 @@
 
 .searchbar {
     margin: 5px;
-    padding: 2px;
+    padding: 5px;
     border-radius: 5px;
     border: 1px rgb(255, 255, 255) solid;
     font-size: 14px;
@@ -20,7 +20,7 @@
 
 .searchbutton {
     margin: 0px;
-    padding: 2px;
+    padding: 5px;
     border-radius: 5px;
     border: 1px #ffd86e solid;
     background-color: #ffd86e;
@@ -31,22 +31,12 @@
 
 .searchbutton:hover {
     margin: 0px;
-    padding: 2px;
+    padding: 5px;
     border-radius: 5px;
     border: 1px #0b4618 solid;
     background-color: #0b4618;
     color: white;
     cursor: pointer;
-}
-
-.subtitlesContainer {
-    margin: 5px;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-}
-
-.subtitlesContainer > h3,h5 {
-    margin: 2px;
 }
 
 .steps {
@@ -58,3 +48,4 @@
     color: white;
     font-size: 14px;
 }
+

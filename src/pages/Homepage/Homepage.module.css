@@ -1,0 +1,59 @@
+.homepage {
+    height: 100%;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    color: #FFEBB7;
+}
+
+.header {
+    color: #0b4618;
+    letter-spacing: 2px;
+    text-shadow: -3px 3px #FFEBB7;
+}
+
+.headerContainer {
+    background-image: url('../../images/banner2.png');
+    background-size: auto;
+    width: 100%;
+}
+
+.enterButtons {
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px #ffd86e solid;
+    background-color: #ffd86e;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.enterButtons:hover {
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px #0b4618 solid;
+    background-color: #0b4618;
+    color: white;
+    cursor: pointer;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+}
+
+.subtitlesContainer {
+    margin: 5px;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.subtitlesContainer > h3,h5 {
+    margin: 2px;
+}
+

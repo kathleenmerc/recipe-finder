@@ -1,13 +1,24 @@
 import { Link } from 'react-router-dom'
+import styles from './Homepage.module.css'
 
-export default function Homepage (props) {
+export default function Homepage(props) {
     return (
-        <div className="homepage">
-            <h1>homepage</h1>
-            <p> have login and sign up info here</p>
-            <p> have landing page / about info here </p>
-            <Link to="/login"><button>Log in here</button></Link>
-            <Link to="/signup"><button>Sign up here</button></Link>
+        <div className={styles.homepage}>
+            <div className={styles.headerContainer}>
+                <h1 className={styles.header}>Recipe Finder</h1>
+            </div>
+
+            <div className={styles.subtitlesContainer}>
+                <h3>What's in your kitchen?</h3>
+                <h5>Find tasty recipes to make with the ingredients you have now</h5>
+            </div>
+
+
+            <section>
+                <Link to="/login"><button className={styles.enterButtons}>Log in</button></Link>
+                <Link to="/signup"><button className={styles.enterButtons}>Sign up</button></Link>
+            </section>
+            
         </div>
     )
 }

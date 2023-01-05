@@ -24,17 +24,13 @@ export default function SearchForm(props) {
 
     return (
         <div className={styles.searchform}>
-            <div className={styles.subtitlesContainer}>
-                <h3>What's in your kitchen?</h3>
-                <h5>Find tasty recipes to make with the ingredients you have now</h5>
-            </div>
+
 
             <div className={styles.steps}>
                 <h5>Step 1: Add your ingredients</h5>
                 <h5>Step 2: Hit Search</h5>
                 <h5>Step 3: Choose your favorite recipes</h5>
             </div>
-
             <form onSubmit={handleSubmit} className={styles.searchContainer}>
                 <input className={styles.searchbar} type="text" name="ingredients" onChange={handleChange} placeholder="chicken, apples, butter" />
                 <button type="submit" className={styles.searchbutton}>Search</button>

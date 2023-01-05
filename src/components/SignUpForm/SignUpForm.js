@@ -21,17 +21,17 @@ export default function SignUpForm(props) {
         evt.preventDefault()
         try {
             const formData = { username, password }
-            delete {error}
-            delete {confirmPassword}
+            delete { error }
+            delete { confirmPassword }
 
             // The promise returned by the signUp service method will resolve to the user object included in the payload of the JSON Web Token(JWT)
             const user = await signUpService(formData)
             props.setUser(user)
-    
+
         } catch {
             setError('Sign Up Failed - Try Again')
         }
-        
+
     }
 
 
@@ -39,26 +39,33 @@ export default function SignUpForm(props) {
 
 
     return (
-        
+
         <div className={styles.signUpFormContainer}>
             <form className={styles.signUpForm} autoComplete="off" onSubmit={handleSubmit}>
+                <div className={styles.inputSection}>
+                    <label>Username:</label>
+                    <input type="text" name="username" value={username} onChange={(evt) => setUsername(evt.target.value)} required />
+                </div>
 
-                <label>Username:</label>
-                <input type="text" name="username" value={username} onChange={(evt) => setUsername(evt.target.value) } required />
+                <div className={styles.inputSection}>
+                    <label>Password:</label>
+                    <input type="password" name="password" value={password} onChange={(evt) => setPassword(evt.target.value)} required />
+                </div>
 
-                <label>Password:</label>
-                <input type="password" name="password" value={password} onChange={(evt) => setPassword(evt.target.value)} required />
+                <div className={styles.inputSection}>
+                    <label>Confirm Password:</label>
+                    <input type="password" name="confirmPassword" value={confirmPassword} onChange={(evt) => setConfirmPassword(evt.target.value)} required />
+                </div>
 
-                <label>Confirm Password:</label>
-                <input type="password" name="confirmPassword" value={confirmPassword} onChange={(evt) => setConfirmPassword(evt.target.value)} required />
-
-                <button type="submit" disabled={disable} className={styles.signUpBtn}>SIGN UP</button>
-            </form>
-            <Link to="/login"><button className={styles.linkBtn}>Already have an account? Log in here.</button></Link>
+                <div className={styles.inputSection}>
+                    <button type="submit" disabled={disable} className={styles.signUpBtn}>SIGN UP</button>
+                </div >
+            </form >
+            <Link to="/login"><button className={styles.linkBtn}>Already have an account? Log in here</button></Link>
 
             <p className="error-message">{error}</p>
-        </div>
-        
+        </div >
+
     )
 }
 

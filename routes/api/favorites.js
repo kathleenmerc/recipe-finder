@@ -5,13 +5,18 @@ const favoritesController = require('../../controllers/api/favorites');
 //const jsonParser = bodyParser.json()
 //const urlencodedParser = bodyParser.urlencoded({ extended: true })
 
-// POST /api/favorites
-router.post('/add', favoritesController.create);
 
 // GET /api/favorites
 router.get('/', favoritesController.index)
 
-// DELETE /api/favorites
+// POST /api/favorites/add
+router.post('/add', favoritesController.create);
+
+// DELETE /api/favorites/:id
 router.delete('/:id', favoritesController.remove)
+
+// PUT /api/favorites/:id/update
+router.put('/:id/update', favoritesController.edit);
+
 
 module.exports = router

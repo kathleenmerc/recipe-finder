@@ -34,24 +34,31 @@ export default function LogInForm(props) {
 
     return (
         
-        <div className={styles.logInFormContainer}>
-            <form className={styles.logInForm} autoComplete="off" onSubmit={handleSubmit}>
+        <div className={styles.loginFormContainer}>
+            <form className={styles.loginForm} autoComplete="off" onSubmit={handleSubmit}>
+                <div className={styles.inputSection}>
+                    <label>Username:</label>
+                    <input type="text" name="username" value={username} onChange={(evt) => setUsername(evt.target.value)} required />
+                </div>
+                
+                <div className={styles.inputSection}>
+                    <label>Password:</label>
+                    <input type="password" name="password" value={password} onChange={(evt) => setPassword(evt.target.value)} required />
+                </div>
 
-                <label>Username:</label>
-                <input type="text" name="username" value={username} onChange={(evt) => setUsername(evt.target.value) } required />
+                <div className={styles.inputSection}>
+                    <label>Confirm Password:</label>
+                    <input type="password" name="confirmPassword" value={confirmPassword} onChange={(evt) => setConfirmPassword(evt.target.value)} required />
+                </div>
 
-                <label>Password:</label>
-                <input type="password" name="password" value={password} onChange={(evt) => setPassword(evt.target.value)} required />
-
-                <label>Confirm Password:</label>
-                <input type="password" name="confirmPassword" value={confirmPassword} onChange={(evt) => setConfirmPassword(evt.target.value)} required />
-
-                <button className={styles.logInBtn} type="submit" disabled={disable}>LOG IN</button> 
-            </form>
-            <Link to="/signup"><button className={styles.linkBtn}>Don't have an account? Sign up here.</button></Link>
+                <div className={styles.inputSection}>
+                    <button type="submit" disabled={disable} className={styles.loginBtn}>LOG IN</button>
+                </div >
+            </form >
+            <Link to="/signup"><button className={styles.linkBtn}>Don't have an account yet? Sign up here</button></Link>
 
             <p className="error-message">{error}</p>
-        </div>
+        </div >
         
     )
 }

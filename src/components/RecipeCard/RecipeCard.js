@@ -11,7 +11,7 @@ export default function RecipeCard(props) {
         title: props.title,
         image: props.image,
         id: props.id,
-        spoonacularSourceUrl: props.spoonacularSourceUrl
+        spoonacularSourceUrl: props.spoonacularSourceUrl,
     })
 
     const [error, setError] = useState(false)
@@ -27,7 +27,7 @@ export default function RecipeCard(props) {
             console.log('fav data id')
             console.log(favoriteData.id)
             props.getFavorite(favoriteData.id)
-            //alert(`Added ${favoriteData.title} to your favorites`)
+            alert(`Added ${favoriteData.title} to your favorites`)
         } catch {
             setError(true)
         }

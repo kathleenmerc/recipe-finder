@@ -1,9 +1,22 @@
-.UserLogOut {
-    font-size: 1.5vmin;
-    color: var(--text-light);
-    text-align: center;
-    }
-    
-    .UserLogOut .email {
-      font-size: smaller;
-    }
+.logOutBtn {
+  margin: 5px 0px;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px #ffd86e solid;
+  background-color: #ffd86e;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.logOutBtn:hover {
+  margin: 5px 0px;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px #0b4618 solid;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+
+}

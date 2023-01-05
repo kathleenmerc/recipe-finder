@@ -1,6 +1,7 @@
 .signUpForm {
     display: flex;
     flex-direction: column;
+    margin: 10px;
 }
 
 label {
@@ -15,20 +16,37 @@ input {
     border-radius: 10px;
 }
 
-
-.signUpBtn {
-    border: none;
-    background-color: white;
-    margin: 5px 0px;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #7439db;
+.inputSection {
+    display: flex;
+    flex-direction: column;
+    margin:5px;
 }
 
+
+.signUpBtn {
+    margin: 5px 0px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px #ffd86e solid;
+    background-color: #ffd86e;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.signUpBtn:hover {
+    margin: 5px 0px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px #0b4618 solid;
+    background-color: #0b4618;
+    color: white;
+    cursor: pointer;
+}
 .linkBtn {
     background: none;
     color: white;
     text-decoration: underline;
     border: none;
+    cursor: pointer;
 }

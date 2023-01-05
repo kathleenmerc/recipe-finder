@@ -15,11 +15,12 @@ img {
     display: flex;
     flex-direction: column;
     width: 200px;
-    height: 250px;
+    height: 275px;
+    color: black;
 }
 
 .favoritesCard:hover{
-    zoom: 110%;
+    zoom: 105%;
 }
 
 .recipe {
@@ -52,10 +53,20 @@ img {
 .closebutton {
     color: black;
     cursor:pointer;
-    float: right;
     font-size:20px;
 }
 
 .closebutton:hover{
     color:red;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+
+.checkbox > input {
+    margin: 10px;
 }

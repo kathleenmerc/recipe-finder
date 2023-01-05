@@ -8,7 +8,7 @@ export default function Nav( { setUser }) {
             <nav className={styles.nav}>
                 <Link to='/' className={styles.navLink}>Search</Link>
                 <Link to='/favorites' className={styles.navLink}>Favorites</Link>
-                <UserLogOut setUser={setUser} />
+                <UserLogOut setUser={setUser} className={styles.logout}/>
             </nav>
         </div>
     )

@@ -16,17 +16,19 @@ export async function deleteFavorite(id) {
     return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
 }
 
+export async function updateFavorite(id, update) {
+    return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', update)
+}
+
 
 
 // HELPER FUNCTIONS:
 async function sendRequest(url, method = 'GET', favInfo = null) {
     const options = { method }
 
-
     if (favInfo) {
         options.headers = { 'Content-Type': 'application/json' };
         options.body = JSON.stringify(favInfo);
-        console.log('option.body here')
         console.log(favInfo)
     }
 
@@ -35,10 +37,6 @@ async function sendRequest(url, method = 'GET', favInfo = null) {
         options.headers = options.headers || {}
         options.headers.Authorization = `Bearer ${token}`
     }
-
-    
-
-    
 
     const res = await fetch(url, options)
     console.log(res)

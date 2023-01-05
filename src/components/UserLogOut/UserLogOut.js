@@ -9,7 +9,7 @@ function handleLogOut() {
 
 return (
   <div >
-    <button onClick={handleLogOut}>LOG OUT</button>
+    <button className={styles.logOutBtn} onClick={handleLogOut}>LOG OUT</button>
   </div>
 );
 }
