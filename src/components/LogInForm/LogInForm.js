@@ -25,6 +25,7 @@ export default function LogInForm(props) {
             props.setUser(user)
         } catch {
             setError('Log In Failed - Try Again')
+            console.log(error)
         }
     }
 

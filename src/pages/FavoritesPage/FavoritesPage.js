@@ -7,6 +7,7 @@ import Nav from '../../components/Nav/Nav';
 
 export default function FavoritesPage(props) {
     const [favorites, setFavorites] = useState([])
+    const [error, setError] = useState('')
 
     const getFavorites = async () => {
         try {
@@ -15,8 +16,9 @@ export default function FavoritesPage(props) {
             console.log('foundfavorites')
             console.log(foundFavorites)
 
-        } catch (err) {
-            console.log(err)
+        } catch {
+            setError('Unable to get Favorites')
+            console.log(error)
         }
     }
 

@@ -25,12 +25,13 @@ export default function SignUpForm(props) {
             delete { error }
             delete { confirmPassword }
 
-            // The promise returned by the signUp service method will resolve to the user object included in the payload of the JSON Web Token(JWT)
+            // The promise returned by the signUp service method will resolve to the user object included in the payload of the JSON Web Token (JWT):
             const user = await signUpService(formData)
             props.setUser(user)
 
         } catch {
             setError('Sign Up Failed - Try Again')
+            console.log(error)
         }
 
     }
@@ -64,7 +65,8 @@ export default function SignUpForm(props) {
             </form >
 
             <Link to="/login"><button className={styles.linkBtn}>Already have an account? Log in here</button></Link>
-
+           
+           <p className="error-message">{error}</p>
         </div >
     )
 }

@@ -6,7 +6,7 @@ export default function SearchForm(props) {
         searchterm: ""
     })
 
-    const [error, setError] = useState(false)
+    const [error, setError] = useState('')
 
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
@@ -15,10 +15,10 @@ export default function SearchForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault()
         if (formData.ingredients) {
-            setError(false)
             props.getIngredients(formData.ingredients)
         } else {
-            setError(true)
+            setError('Unable to search recipes')
+            console.log(error)
         }
     }
 

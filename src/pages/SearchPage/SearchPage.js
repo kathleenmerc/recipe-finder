@@ -9,22 +9,23 @@ import { addFavorite } from "../../utilities/favorites-api"
 export default function SearchPage({ user, setUser }) {
     const [ingredients, setIngredients] = useState(null)
     const [favorite, setFavorite] = useState([])
+    const [error, setError] = useState('')
+    
 
     const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
 
     const getFavorite = async (id, user) => {
         try {
             // CODE FLOW TO GET AND SET RECIPE DATA FOR NEW FAVORITE:
-
             // Use the recipe spoonacular id to fetch the favInfo:
             const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${REACT_APP_API_KEY}&includeNutrition=false`)
             const favInfo = await response.json()
 
-            // Adding the current User's userId to favInfo:
+            // Add the current User's userId to favInfo:
             console.log(user)
             favInfo.userId = user._id
 
-            // Setting a new Favorite using the favInfo from spoonacular, including the user's userId (favInfo.userId):
+            // Set a new Favorite using the favInfo from spoonacular, including the user's userId (favInfo.userId):
             setFavorite(favInfo)
             console.log('favinfo')
             console.log(favInfo)
@@ -34,8 +35,9 @@ export default function SearchPage({ user, setUser }) {
             console.log('new favorite here')
             console.log(newFavorite)
 
-        } catch (err) {
-            console.log(err)
+        } catch {
+            setError('Unable to create a new favorite')
+            console.log(error)
         }
     }
 
@@ -46,8 +48,9 @@ export default function SearchPage({ user, setUser }) {
             const data = await response.json()
             setIngredients(data)
             console.log(data)
-        } catch (err) {
-            console.log(err)
+        } catch {
+            setError('Unable to fetch the recipes')
+            console.log(error)
         }
     }
 

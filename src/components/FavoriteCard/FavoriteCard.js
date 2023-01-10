@@ -15,7 +15,7 @@ export default function FavoriteCard(props) {
         userId: props.userId
     })
 
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
 
     const handleDelete = async (evt) => {
         try {
@@ -24,7 +24,8 @@ export default function FavoriteCard(props) {
             await favoritesAPI.deleteFavorite(props._id)
             props.getFavorites()
         } catch {
-            setError({ error: "Unable to delete" });
+            setError('Unable to delete')
+            console.log(error)
         }
 
     }
@@ -32,25 +33,21 @@ export default function FavoriteCard(props) {
 
     const handleChange = async (evt) => {
         try {
-            // changed evt.target.value to evt.target.checked
-            // setFav({ ...fav, [evt.target.name]: evt.target.value })
+            // Set cooked property to a true/false value using evt.target.checked:
             setFav({ ...fav, [evt.target.name]: evt.target.checked })
+
+            // Create a copy of fav to use for the updated favorite:
             const favCopy = fav
 
-            // changed from value to checked
-            // favCopy.cooked = evt.target.value
+            // Set favCopy.cooked to the current value of checkbox:
             favCopy.cooked = evt.target.checked
 
-            console.log('LOOK HERE AT FAV')
-            console.log(fav)
+            // Update the Favorite using the information from favCopy:
             const update = await favoritesAPI.updateFavorite(props.id, favCopy)
 
-            //setFav(update)
-            //console.log(update)
-            //console.log(props.cooked)
-            //props.getFavorites()
         } catch {
-            setError({ error: "Unable to update" });
+            setError('Unable to update')
+            console.log(error)
         }
     }
 

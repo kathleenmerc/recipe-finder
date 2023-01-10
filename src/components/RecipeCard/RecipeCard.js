@@ -12,7 +12,7 @@ export default function RecipeCard(props) {
         spoonacularSourceUrl: props.spoonacularSourceUrl,
     })
 
-    const [error, setError] = useState(false)
+    const [error, setError] = useState('')
 
     const handleChange = (evt) => {
         setFavoriteData({ ...favoriteData, [evt.target.name]: props.value })
@@ -21,13 +21,13 @@ export default function RecipeCard(props) {
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
-            setError(false)
             console.log('fav data id')
             console.log(favoriteData.id)
             props.getFavorite(favoriteData.id, props.user)
             alert(`Added ${favoriteData.title} to your favorites`)
         } catch {
-            setError(true)
+            setError('Unable to add to your favorites')
+            console.log(error)
         }
     }
 
