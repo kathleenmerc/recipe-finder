@@ -12,19 +12,26 @@ export default function SearchPage({ user, setUser }) {
 
     const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY
 
-    const getFavorite = async (id, evt) => {
+    const getFavorite = async (id, user) => {
         try {
             // CODE FLOW TO GET AND SET RECIPE DATA FOR NEW FAVORITE:
+
+            // Use the recipe spoonacular id to fetch the favInfo:
             const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${REACT_APP_API_KEY}&includeNutrition=false`)
             const favInfo = await response.json()
+
+            // Adding the current User's userId to favInfo:
+            console.log(user)
+            favInfo.userId = user._id
+
+            // Setting a new Favorite using the favInfo from spoonacular, including the user's userId (favInfo.userId):
             setFavorite(favInfo)
             console.log('favinfo')
             console.log(favInfo)
 
-            // CODE FLOW TO ADD FAVORITE TO DATABASE:
+            // CODE FLOW TO ADD THE NEW FAVORITE TO DATABASE:
             const newFavorite = await addFavorite(favInfo)
             console.log('new favorite here')
-            console.log(favInfo)
             console.log(newFavorite)
 
         } catch (err) {

@@ -1,5 +1,5 @@
 import styles from './SearchForm.module.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function SearchForm(props) {
     const [formData, setFormData] = useState({

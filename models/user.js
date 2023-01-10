@@ -22,6 +22,9 @@ const userSchema = new Schema({
 
 // PRE-SAVE HOOK (MIDDLEWARE FUNCTION):
 userSchema.pre('save', async function (next) {
+
+    // If the password is not modified, it does not need to be hashed again:
+    // 'this' refers to the user document: 
     if (!this.isModified('password')) return next()
 
     // Update the password with the computed hash:

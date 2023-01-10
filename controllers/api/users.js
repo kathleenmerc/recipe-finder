@@ -26,13 +26,13 @@ async function login(req, res) {
         const user = await User.findOne({ username: req.body.username })
 
         // If user does not exist, then throw error:
-        if (!user) throw new Error()
+        if (!user) throw new Error("Username does not exist")
 
         // Comparing the inputted password to the hashed password in the database:
         const match = await bcrypt.compare(req.body.password, user.password)
 
-        // If the passwrods do not match, then throw error:
-        if (!match) throw new Error()
+        // If the passwords do not match, then throw error:
+        if (!match) throw new Error("Passwords do not match")
 
         // If the username and password match, then create a new token:
         res.json(createJWT(user))

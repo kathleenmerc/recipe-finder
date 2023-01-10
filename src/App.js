@@ -11,8 +11,6 @@ import { getUser } from './utilities/users-service'
 
 
 
-
-
 function App(props) {
   const [user, setUser] = useState(getUser())
 

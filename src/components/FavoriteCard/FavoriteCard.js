@@ -11,7 +11,8 @@ export default function FavoriteCard(props) {
         image: props.image,
         id: props.id,
         spoonacularSourceUrl: props.spoonacularSourceUrl,
-        cooked: false
+        cooked: "",
+        userId: props.userId
     })
 
     const [error, setError] = useState(false);
@@ -20,7 +21,7 @@ export default function FavoriteCard(props) {
         try {
             setFav({ ...fav, [evt.target.name]: evt.target.value })
             evt.preventDefault()
-            await favoritesAPI.deleteFavorite(props.id)
+            await favoritesAPI.deleteFavorite(props._id)
             props.getFavorites()
         } catch {
             setError({ error: "Unable to delete" });
@@ -30,40 +31,29 @@ export default function FavoriteCard(props) {
 
 
     const handleChange = async (evt) => {
-        // Still needs to be modified:
         try {
-            if (evt.target.value === "on" || evt.target.value === "true") {
-                evt.target.value = "true"
-            } else if (evt.target.value === "off" || evt.target.value === "false") {
-                evt.target.value = "true"
-            }
+            // changed evt.target.value to evt.target.checked
+            // setFav({ ...fav, [evt.target.name]: evt.target.value })
+            setFav({ ...fav, [evt.target.name]: evt.target.checked })
+            const favCopy = fav
 
-            setFav({ ...fav, [evt.target.name]: evt.target.value })
+            // changed from value to checked
+            // favCopy.cooked = evt.target.value
+            favCopy.cooked = evt.target.checked
 
-            const update = await favoritesAPI.updateFavorite(props.id, fav)
+            console.log('LOOK HERE AT FAV')
+            console.log(fav)
+            const update = await favoritesAPI.updateFavorite(props.id, favCopy)
 
             //setFav(update)
             //console.log(update)
             //console.log(props.cooked)
-
+            //props.getFavorites()
         } catch {
             setError({ error: "Unable to update" });
         }
-
     }
 
-    // const handleSubmit = async (evt) => {
-    //     evt.preventDefault()
-    //     console.log('this is handlesubmit')
-    //     try {
-    //         const update = await favoritesAPI.updateFavorite(props.id, props.cooked)
-    //         setFav(update)
-    //         console.log(update)
-    //     } catch {
-    //         setError({ error: "Unable to update" });
-    //     }
-
-    // }
 
     return (
         <div className={styles.favoritesCard}>
@@ -78,7 +68,7 @@ export default function FavoriteCard(props) {
 
             <div className={styles.checkbox}>
                 <label>Cooked</label>
-                <input type="checkbox" name="cooked" onChange={handleChange} />
+                {props.cooked === true ? <input type="checkbox" name="cooked" onChange={handleChange} defaultChecked /> : <input type="checkbox" name="cooked" onChange={handleChange}  />}
             </div>
         </div>
     )

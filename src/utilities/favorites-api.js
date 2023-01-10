@@ -6,8 +6,6 @@ const BASE_URL = '/api/favorites';
 
 // FAVORITES FUNCTIONS:
 export async function addFavorite(favInfo) {
-    console.log('api function here')
-    console.log(favInfo)
     return sendRequest(`${BASE_URL}/add`, 'POST', favInfo)
 }
 
@@ -16,7 +14,7 @@ export async function getFavoritesAPI() {
 }
 
 export async function deleteFavorite(id) {
-    return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
+    return sendRequest(`${BASE_URL}/${id}/delete`, 'DELETE')
 }
 
 export async function updateFavorite(id, update) {

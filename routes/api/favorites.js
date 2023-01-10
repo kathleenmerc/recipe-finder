@@ -12,8 +12,8 @@ router.get('/', favoritesController.index)
 // POST /api/favorites/add
 router.post('/add', favoritesController.create);
 
-// DELETE /api/favorites/:id
-router.delete('/:id', favoritesController.remove)
+// DELETE /api/favorites/:id/delete
+router.delete('/:id/delete', favoritesController.remove)
 
 // PUT /api/favorites/:id/update
 router.put('/:id/update', favoritesController.edit);
