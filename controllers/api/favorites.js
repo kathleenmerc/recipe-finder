@@ -30,10 +30,10 @@ async function index(req, res) {
 
 async function remove(req, res) {
     try {
-        console.log("REQ.BODY HERE")
-        console.log(req.body.objectId)
-        console.log('REQ.PARAMS.ID HERE')
-        console.log(req.params.id) // prints object id
+        // console.log("REQ.BODY HERE")
+        // console.log(req.body.objectId)
+        // console.log('REQ.PARAMS.ID HERE')
+        // console.log(req.params.id) // prints object id
 
         // Filter by finding specific object._id:
         const favorites = await Favorite.findByIdAndDelete(req.params.id)
@@ -45,10 +45,10 @@ async function remove(req, res) {
 
 async function edit(req, res) {
     try {
-        console.log("REQ.BODY HERE")
-        console.log(req.body)
-        console.log('REQ.PARAMS.ID HERE')
-        console.log(req.params.id) // prints spoonacular id
+        // console.log("REQ.BODY HERE")
+        // console.log(req.body)
+        // console.log('REQ.PARAMS.ID HERE')
+        // console.log(req.params.id) // prints spoonacular id
         
         // Filter by finding specific object._id:
         const updatedFavorite = await Favorite.findByIdAndUpdate(req.body.objectId, req.body, { new: true });
