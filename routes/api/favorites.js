@@ -12,10 +12,10 @@ router.get('/', favoritesController.index)
 // POST /api/favorites/add
 router.post('/add', favoritesController.create);
 
-// DELETE /api/favorites/:id/delete
-router.delete('/:id/delete', favoritesController.remove)
+// DELETE /api/favorites/:id
+router.delete('/:id', favoritesController.remove)
 
-// PUT /api/favorites/:id/update
+// PUT /api/favorites/:id
 router.put('/:id/update', favoritesController.edit);
 
 

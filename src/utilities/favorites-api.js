@@ -14,7 +14,7 @@ export async function getFavoritesAPI() {
 }
 
 export async function deleteFavorite(id) {
-    return sendRequest(`${BASE_URL}/${id}/delete`, 'DELETE')
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
 }
 
 export async function updateFavorite(id, update) {

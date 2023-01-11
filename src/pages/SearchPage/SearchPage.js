@@ -31,6 +31,7 @@ export default function SearchPage({ user, setUser }) {
             console.log(favInfo)
 
             // CODE FLOW TO ADD THE NEW FAVORITE TO DATABASE:
+            console.log('why am i happening again')
             const newFavorite = await addFavorite(favInfo)
             console.log('new favorite here')
             console.log(newFavorite)

@@ -12,7 +12,8 @@ export default function FavoriteCard(props) {
         id: props.id,
         spoonacularSourceUrl: props.spoonacularSourceUrl,
         cooked: "",
-        userId: props.userId
+        userId: props.userId,
+        objectId: props.objectId
     })
 
     const [error, setError] = useState('');
@@ -21,7 +22,9 @@ export default function FavoriteCard(props) {
         try {
             setFav({ ...fav, [evt.target.name]: evt.target.value })
             evt.preventDefault()
-            await favoritesAPI.deleteFavorite(props._id)
+            await favoritesAPI.deleteFavorite(props.objectId)
+            console.log('props is here')
+            console.log(props.objectId)
             props.getFavorites()
         } catch {
             setError('Unable to delete')
@@ -44,6 +47,8 @@ export default function FavoriteCard(props) {
 
             // Update the Favorite using the information from favCopy:
             const update = await favoritesAPI.updateFavorite(props.id, favCopy)
+            console.log('update here')
+            console.log(update)
 
         } catch {
             setError('Unable to update')
