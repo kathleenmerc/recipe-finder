@@ -46,7 +46,7 @@ export default function FavoriteCard(props) {
             favCopy.cooked = evt.target.checked
 
             // Update the Favorite using the information from favCopy:
-            const update = await favoritesAPI.updateFavorite(props.id, favCopy)
+            const update = await favoritesAPI.updateFavorite(props.objectId, favCopy)
             console.log('update here')
             console.log(update)
 
