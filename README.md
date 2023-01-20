@@ -6,7 +6,7 @@ Complete CRUD app created with the MERN stack (MongoDB, Express, React, and Node
 
 
 ## Installation:
-To be updated.
+Check out the live site, deployed on render: https://recipe-finder.onrender.com/
 
 
 ## Features:
@@ -21,4 +21,4 @@ To be updated.
 
 - Creating filters for food cusines, categories, etc.
 - Add a notes section for user to store comments
-- Updating and modifying user-to-favorites relationship
+- ~~Updating and modifying user-to-favorites relationship~~
