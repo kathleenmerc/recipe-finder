@@ -4,6 +4,7 @@ A website to help you find what recipes you can make with the ingredients you al
 
 Complete CRUD app created with the MERN stack (MongoDB, Express, React, and Node JS). 
 
+![screenshot of recipe-finder website](./public/recipe-finder-img.png)
 
 ## Installation:
 Check out the live site, deployed on render: https://recipe-finder.onrender.com/
