@@ -26,9 +26,9 @@ npm run build
 
 ## Features:
 
-- Implemented User Authentication and Authorization with JSON web token and bcrypt
-- Pulled data from spoonacular's food API
-- Users can add recipes to their favorites page
+- Implemented User Authentication and Authorization with JSON web token and bcrypt hashing for secure user sign up and log in  
+- Users can search for recipes utilizing data from Spoonacular's Food API  
+- Users can add recipes to their favorites page, mark them as cooked, and keep track of their cooking progress  
 - Utilized fetch requests with async/await functions, useState, and react-router-dom
 
 ## Dependencies:
