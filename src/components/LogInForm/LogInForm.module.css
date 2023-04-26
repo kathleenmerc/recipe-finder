@@ -44,6 +44,13 @@ input {
     cursor: pointer;
 }
 
+.loginBtn:disabled {
+    background-color: rgb(173, 173, 173);
+    border:black;
+    color: black;
+    cursor:no-drop;
+}
+
 .linkBtn {
     background: none;
     color: white;

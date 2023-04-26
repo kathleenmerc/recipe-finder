@@ -30,14 +30,14 @@ export default function SignUpForm(props) {
             props.setUser(user)
 
         } catch {
-            setError('Sign Up Failed - Try Again')
+            setError('Username is already taken')
             console.log(error)
         }
 
     }
 
 
-    const disable = password !== confirmPassword
+    const disable = password !== confirmPassword || password.length < 7
 
 
     return (
@@ -50,7 +50,7 @@ export default function SignUpForm(props) {
                 </div>
 
                 <div className={styles.inputSection}>
-                    <label>Password:</label>
+                    <label>Password: (Must be at least 7 characters)</label>
                     <input type="password" name="password" value={password} onChange={(evt) => setPassword(evt.target.value)} required />
                 </div>
 
@@ -66,7 +66,7 @@ export default function SignUpForm(props) {
 
             <Link to="/login"><button className={styles.linkBtn}>Already have an account? Log in here</button></Link>
            
-           <p className="error-message">{error}</p>
+           <p className="error-message" disabled={disable}>{error}</p>
         </div >
     )
 }

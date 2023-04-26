@@ -43,6 +43,15 @@ input {
     cursor: pointer;
 }
 
+.signUpBtn:disabled {
+    background-color: rgb(173, 173, 173);
+    border:black;
+    color: black;
+    cursor:no-drop;
+}
+
+
+
 .linkBtn {
     background: none;
     color: white;
@@ -50,3 +59,4 @@ input {
     border: none;
     cursor: pointer;
 }
+
