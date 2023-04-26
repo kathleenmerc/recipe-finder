@@ -47,9 +47,12 @@ export default function SearchPage({ user, setUser }) {
             const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${REACT_APP_API_KEY}&ingredients=${searchTerm}&number=9`)
             const data = await response.json()
             setIngredients(data)
-            console.log(data)
+
+            if (data.length === 0) {
+                setError('No recipes found')
+            } 
         } catch {
-            setError('Unable to fetch the recipes')
+            setError('Unable to fetch recipes')
             console.log(error)
         }
     }
@@ -92,6 +95,8 @@ export default function SearchPage({ user, setUser }) {
             <div>
                 {ingredients ? loaded() : loading()}
             </div>
+
+            <p className="error-message">{error}</p>
         </div>
     )
 }

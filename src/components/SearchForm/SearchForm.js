@@ -14,10 +14,11 @@ export default function SearchForm(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        setError(false)
         if (formData.ingredients) {
             props.getIngredients(formData.ingredients)
         } else {
-            setError('Unable to search recipes')
+            setError('Please enter an ingredient')
             console.log(error)
         }
     }
@@ -35,7 +36,8 @@ export default function SearchForm(props) {
                 <button type="submit" className={styles.searchbutton}>Search</button>
             </form>
 
-            {error ? <p>Please enter an ingredient</p> : ""}
+            {error} 
+ 
         </div>
     )
 };
