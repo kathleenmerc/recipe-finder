@@ -7,6 +7,7 @@ import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import FavoriteCard from './components/FavoriteCard/FavoriteCard';
 import LogInPage from './pages/LogInPage/LogInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
+import Footer from './components/Footer';
 import { getUser } from './utilities/users-service'
 
 
@@ -34,7 +35,7 @@ function App(props) {
         </Routes>
 
       }
-
+      <Footer />
     </div>
   );
 }
