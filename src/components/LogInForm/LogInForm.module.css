@@ -46,9 +46,9 @@ input {
 
 .loginBtn:disabled {
     background-color: rgb(173, 173, 173);
-    border:black;
+    border: black;
     color: black;
-    cursor:no-drop;
+    cursor: no-drop;
 }
 
 .linkBtn {
@@ -58,3 +58,28 @@ input {
     border: none;
     cursor: pointer;
 }
+
+
+.recruiterBtn {
+    margin: 5px 0px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px #ffd86e solid;
+    background-color: #ffd86e;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.recruiterBtn:hover {
+    margin: 5px 0px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px #0b4618 solid;
+    background-color: #0b4618;
+    color: white;
+    cursor: pointer;
+}
+
+
+    

@@ -67,6 +67,8 @@ export default function SignUpForm(props) {
             <Link to="/login"><button className={styles.linkBtn}>Already have an account? Log in here</button></Link>
            
            <p className="error-message" disabled={disable}>{error}</p>
+
+           <Link to="/login"><button className={styles.recruiterBtn}>Recruiters Click Me</button></Link>
         </div >
     )
 }

@@ -33,6 +33,17 @@ export default function LogInForm(props) {
     const disable = password !== confirmPassword
 
 
+    const handleRecruiterBtn = (evt) => {
+        evt.preventDefault()
+        alert(
+        '▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬\n' 
+        + '\nHello and welcome to Recipe-Finder! Thank you for visiting.\n'
+        + '\nFeel free to use these log in credentials:\n' 
+        + "\t Username: TestChef\n" 
+        + '\t Password: recipefinder\n' 
+        )
+    }
+
     return (
 
         <div className={styles.loginFormContainer}>
@@ -60,6 +71,8 @@ export default function LogInForm(props) {
             <Link to="/signup"><button className={styles.linkBtn}>Don't have an account yet? Sign up here</button></Link>
 
             <p className="error-message" disabled={disable}>{error}</p>
+
+            <button className={styles.recruiterBtn} onClick={handleRecruiterBtn}>Recruiter Log In</button>
         </div >
 
     )
