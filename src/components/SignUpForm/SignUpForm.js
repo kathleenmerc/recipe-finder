@@ -68,7 +68,7 @@ export default function SignUpForm(props) {
            
            <p className="error-message" disabled={disable}>{error}</p>
 
-           <Link to="/login"><button className={styles.recruiterBtn}>Recruiters Click Me</button></Link>
+           <Link to="/login"><button className={styles.demoBtn}>Demo Log In</button></Link>
         </div >
     )
 }

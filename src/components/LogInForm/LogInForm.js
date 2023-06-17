@@ -38,13 +38,6 @@ export default function LogInForm(props) {
         setUsername("demo")
         setPassword("recipefinder")
         setConfirmPassword("recipefinder")
-        // alert(
-        // '▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬\n' 
-        // + '\nHello and welcome to Recipe-Finder! Thank you for visiting.\n'
-        // + '\nFeel free to use these log in credentials:\n' 
-        // + "\t Username: TestChef\n" 
-        // + '\t Password: recipefinder\n' 
-        // )
     }
 
     return (
@@ -75,7 +68,7 @@ export default function LogInForm(props) {
 
             <p className="error-message" disabled={disable}>{error}</p>
 
-            <button className={styles.recruiterBtn} onClick={handleDemoBtn}>Demo Log In</button>
+            <button className={styles.demoBtn} onClick={handleDemoBtn}>Demo Log In</button>
         </div >
 
     )

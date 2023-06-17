@@ -60,7 +60,7 @@ input {
 }
 
 
-.recruiterBtn {
+.demoBtn {
     margin: 5px 0px;
     padding: 10px;
     border-radius: 5px;
@@ -71,7 +71,7 @@ input {
     font-weight: bold;
 }
 
-.recruiterBtn:hover {
+.demoBtn:hover {
     margin: 5px 0px;
     padding: 10px;
     border-radius: 5px;
