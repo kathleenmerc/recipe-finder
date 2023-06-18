@@ -33,12 +33,13 @@ export default function LogInForm(props) {
     const disable = password !== confirmPassword
 
 
-    const handleDemoBtn = (evt) => {
+    const handleGuestLogInBtn = async (evt) => {
         evt.preventDefault()
-        setUsername("demo")
+        setUsername("guest")
         setPassword("recipefinder")
         setConfirmPassword("recipefinder")
     }
+
 
     return (
 
@@ -63,12 +64,13 @@ export default function LogInForm(props) {
                     <button type="submit" disabled={disable} className={styles.loginBtn}>LOG IN</button>
                 </div >
             </form >
-            
+
             <Link to="/signup"><button className={styles.linkBtn}>Don't have an account yet? Sign up here</button></Link>
 
             <p className="error-message" disabled={disable}>{error}</p>
 
-            <button className={styles.demoBtn} onClick={handleDemoBtn}>Demo Log In</button>
+            <button type="submit" className={styles.guestBtn} onClick={handleGuestLogInBtn}>Guest Account</button>
+
         </div >
 
     )

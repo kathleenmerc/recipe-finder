@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { signUpService } from '../../utilities/users-service'
 
-
 export default function SignUpForm(props) {
 
     const [username, setUsername] = useState('')
@@ -67,8 +66,6 @@ export default function SignUpForm(props) {
             <Link to="/login"><button className={styles.linkBtn}>Already have an account? Log in here</button></Link>
            
            <p className="error-message" disabled={disable}>{error}</p>
-
-           <Link to="/login"><button className={styles.demoBtn}>Demo Log In</button></Link>
         </div >
     )
 }

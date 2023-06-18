@@ -60,7 +60,7 @@ input {
 }
 
 
-.demoBtn {
+.guestBtn {
     margin: 5px 0px;
     padding: 10px;
     border-radius: 5px;
@@ -71,7 +71,7 @@ input {
     font-weight: bold;
 }
 
-.demoBtn:hover {
+.guestBtn:hover {
     margin: 5px 0px;
     padding: 10px;
     border-radius: 5px;
